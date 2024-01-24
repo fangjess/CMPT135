@@ -43,5 +43,9 @@
 
 ![image](https://github.com/fangjess/CMPT135/assets/140139367/87dd57d8-9685-43ac-99f8-65a067d768b5)
 
+- ``delete`` given an address, will delete what it points to
+  - double deletion is always an error.
+  - deleting an array, use ``delete[] arr``
+
 
   
