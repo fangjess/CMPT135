@@ -46,6 +46,8 @@
 - ``delete`` given an address, will delete what it points to
   - double deletion is always an error.
   - deleting an array, use ``delete[] arr``
+ 
+- You can point to 1 past the size of your array (incrementing in a for loop for example...)
 
 
   
