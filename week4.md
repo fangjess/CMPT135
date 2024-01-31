@@ -56,5 +56,11 @@
 - Pros:
   - Efficient arr[i], *(arr+i)
   - No wasted memory.
+  - Built-in support.
+  - Works well with pointers
+- Cons:
+  - Don't know their length.
+  - Fixed size.
+  - Error prone: no bounds checking
   
     
