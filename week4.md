@@ -83,21 +83,22 @@
   }
   ```
  
-  **OOP: Objects and classes**
-  - Objects vs classes example:
-    - The circle is a common shape (class of all circles)
-    - The circle I've just drawn is very big (a particular circle; the object)
-  - Objects:
-    - Exist at run-time
-      - Dont exist at compile-time.
-    - Values typically composed of smaller values
-    - Must be allocated and de-allocated
-    - Have the type of their class
-  - Classes (basically structs):
-    - Exist at compile-time
-      - Don't exist at run-time in C++
-    - Like blueprints for creating an object
-    - Classes are the types for the objects they describe
+**OOP: Objects and classes**
+- Objects vs classes example:
+  - The circle is a common shape (class of all circles)
+  - The circle I've just drawn is very big (a particular circle; the object)
+- Objects:
+  - Exist at run-time
+    - Dont exist at compile-time.
+  - Values typically composed of smaller values
+  - Must be allocated and de-allocated
+  - Have the type of their class
+- Classes (basically structs):
+  - Exist at compile-time
+    - Don't exist at run-time in C++
+  - Like blueprints for creating an object
+  - Classes are the types for the objects they describe
+
 
   ```
   struct Person {
@@ -112,6 +113,7 @@
 
   // need std:: notation because to_string() is both a function in std library and the name of our function.
   ```
+  
 **Public & Private**
   - Variables inside the struct are member variables.
   - Can also have member functions inside the struct called *methods*.
@@ -133,6 +135,7 @@
     }
   };
   ```
+
   - Example of object 'bob' of type 'Person':
   - cout << bob.name // Compiler error (name and age are private)
   - cout << bob.age // Compiler error
