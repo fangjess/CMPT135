@@ -62,5 +62,71 @@
   - Don't know their length.
   - Fixed size.
   - Error prone: no bounds checking
+ 
+  **OOP: Objects and classes**
+  - Objects vs classes example:
+    - The circle is a common shape (class of all circles)
+    - The circle I've just drawn is very big (a particular circle, the object)
+  - Objects:
+    - Exist at run-time
+      - Dont exist at compile-time.
+    - Values typically composed of smaller values
+    - Must be allocated and de-allocated
+    - Have the type of their class
+  - Classes (structs):
+    - Exist at compile-time
+      - Don't exist at run-time in C++
+    - Like blueprints for creating an object
+    - Classes are the types for the objects they describe
+
+  ```
+  struct Person {
+    string name;
+    int age;
+
+    string to_string() {
+      return name + "" +
+          std::to_string(age);
+    }
+  };
+
+  // need std:: notation because to_string() is both a function in std library and the name of our function.
+  ```
+
+  - Variables inside the struct are member variables.
+  - Can also have member functions inside the struct called *methods*.
+  - Methods can access the member variables and methods of the struct without any special notation.
+  - By default, all members of a *struct* are public.
+  - By default, all members of a *class* are private.
   
+  ```
+  struct Person {
+  private:
+    string name;
+    int age;
+  public:
+    string to_string() {
+      return name + "" +
+        std:: to_string(age);
+    }
+  };
+  ```
+  - cout << bob.name // Compiler error
+  - cout << bob.age // Compiler error
+  - cout << bob.to_string(); // Bob 25
+  
+  ```
+  class string {
+    char* data;
+    size_t size;
+    // ...
+  public:
+    size_t size() const {
+        return size;
+    }
+    // ...
+  };
+  ```
+  
+
     
