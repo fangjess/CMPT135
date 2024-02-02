@@ -63,17 +63,37 @@
   - Fixed size.
   - Error prone: no bounds checking
  
+- Example: sorting an array:
+  ```
+  #include <algorithm>
+  using namespace std;
+  
+  struct intarray
+  {
+      int* arr;
+      int size;
+  };
+  
+  // Function to sort an array
+  void sort_array(intarray a)
+  // Pass by value is fine for arrays; creating a copy of the pointer to the array
+  // but data at pointer is not copied.
+  {
+      sort(a.arr, a.arr + a.size);
+  }
+  ```
+ 
   **OOP: Objects and classes**
   - Objects vs classes example:
     - The circle is a common shape (class of all circles)
-    - The circle I've just drawn is very big (a particular circle, the object)
+    - The circle I've just drawn is very big (a particular circle; the object)
   - Objects:
     - Exist at run-time
       - Dont exist at compile-time.
     - Values typically composed of smaller values
     - Must be allocated and de-allocated
     - Have the type of their class
-  - Classes (structs):
+  - Classes (basically structs):
     - Exist at compile-time
       - Don't exist at run-time in C++
     - Like blueprints for creating an object
@@ -92,10 +112,12 @@
 
   // need std:: notation because to_string() is both a function in std library and the name of our function.
   ```
-
+**Public & Private**
   - Variables inside the struct are member variables.
   - Can also have member functions inside the struct called *methods*.
   - Methods can access the member variables and methods of the struct without any special notation.
+  - Private: means specified members are only accessible from other member functions (e.g. can't access from main()).
+  - Public: specified members accessible from any function.
   - By default, all members of a *struct* are public.
   - By default, all members of a *class* are private.
   
@@ -111,22 +133,11 @@
     }
   };
   ```
-  - cout << bob.name // Compiler error
+  - Example of object 'bob' of type 'Person':
+  - cout << bob.name // Compiler error (name and age are private)
   - cout << bob.age // Compiler error
-  - cout << bob.to_string(); // Bob 25
+  - cout << bob.to_string(); // Bob 25 (to_string is public)
   
-  ```
-  class string {
-    char* data;
-    size_t size;
-    // ...
-  public:
-    size_t size() const {
-        return size;
-    }
-    // ...
-  };
-  ```
   
 
     
