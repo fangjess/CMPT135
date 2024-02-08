@@ -57,15 +57,15 @@
     - Use the ``x(val)`` notation styles to initialize variables
     - this notation works with more kinds of objects than ``x = val`` style notation
 
-  **Encapsulation**
-  - Idea of protecting the implementation details of an object
-  - Data hiding: The implementation details of an object are intentionally hidden from the program
-  - Thus they don't need to worry about those details, and it allows for changing the object's implenetation later
-    - E.g. a ``std::string`` is typically implemented using an array of characters, and the programmer does not need to know this when they use it
-  - Access control: The object controls how you can read/write its variables. This simplifies interacting with the object
-    - E.g. in ``std::string`` object, you can read the size of the string, but you can't set the size of the string directly
+**Encapsulation**
+- Idea of protecting the implementation details of an object
+- Data hiding: The implementation details of an object are intentionally hidden from the program
+- Thus they don't need to worry about those details, and it allows for changing the object's implenetation later
+  - E.g. a ``std::string`` is typically implemented using an array of characters, and the programmer does not need to know this when they use it
+- Access control: The object controls how you can read/write its variables. This simplifies interacting with the object
+  - E.g. in ``std::string`` object, you can read the size of the string, but you can't set the size of the string directly
    
-  **Getters**
+**Getters**
 
   ```
   class Data {
@@ -78,4 +78,44 @@
     int get_year() const { return year; }
   };
   ```
-  - getters or accessors return a value of an object's variable, Getters usually don't modify the object so they're typically const
+- getters or accessors return a value of an object's variable, Getters usually don't modify the object so they're typically const
+
+**Designing an (x,y) point class**
+- We want it to be easy to create points
+- Think about what parts you want to be public and private
+  - If you make x and y private you'll need setters/getters
+  ```
+  Point a(4, -5);
+  cout << a.get_x();
+  a.set_x(3);
+  ```
+  - If x and y are public:
+  ```
+  Point a(4, -5);
+  cout << a.x;
+  a.x = 3;
+  ```
+  - Since there doesn't seem to be obvious restrictions on accessing x and y, we cna make them public.
+- Decide whether you want points to be mutable or immutable.
+  - Means you can't change x and y.
+
+**Implementing an ((x,y) point class**
+```
+struct Point
+{
+  const int x;
+  const int y;
+
+  Point(int x, int y)
+  : x(x), y(y)
+  {}
+
+  Point(const Point &other) // A copy constructor takes another point object as input and copies its (x,y) values
+  : x(other.x), y(other.y)
+  {}
+
+  Point() // A default constructor takes no inputs, assigns x and y some sensible default values
+  : x(0), y(0)
+  {}
+};
+```
