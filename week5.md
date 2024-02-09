@@ -119,3 +119,68 @@ struct Point
   {}
 };
 ```
+
+**More on Free Store Allocation**
+
+```
+void f() {
+  double* p = new double(6.4);
+
+  cout << *p; // 6.4
+
+  delete p;
+}
+```
+- Make sure ``delete`` is called every time ``}`` is reached.
+
+```
+class Temeprature {
+  double* temp;
+public:
+  Temperature(double t)
+  : temp new double()
+  {}
+
+  double get_temp() const {
+    return *temp;
+  }
+
+  void set_temp(double t) {
+    *temp = t;
+  }
+
+  ~Temperature() {
+    delete temp;
+  }
+}
+```
+
+- Constructor called ``new``
+- Destructor ``~Temperature()`` is called automatically
+  - Calls delete
+  - Destructor is always called automatically when the object it's associated with is deallocated
+  - Destructor is always the name of the class with a ``~`` at the start
+  - Takes no inputs
+
+**Resource Acquisition is Initialization (RAII)**
+- RAII is the idea of managing memory using objects
+- The memory...
+  - is allocated in the objects constructor
+  - exists for the lifetime of the object
+  - is automatically deallocated when the object's destructor is called
+- The details of the memory managed are completely handled by the object
+  - No memory leaks/dangling pointers
+- RAII can also be used for other resources:
+  - File handles
+  - Network connections
+
+**Assignment 2**
+- Constructors
+- Destructors
+- Management of memory
+- Creating a dynamic structure
+- Start from free store allocation example as a base template
+- Maybe create an ``append()`` method to add something to the end of your array
+- How to get more memory for ``append()``?
+  - Make a new array, copy everything over with room for the object you're appending
+  - Delete the previous array
