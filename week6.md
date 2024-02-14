@@ -6,7 +6,14 @@
   - ``int_vec`` inherits from ``vector<int>``
   - add the ``sort()`` method to ``int_vec``
   - With inheritance, we can use the methods in ``vector<int>`` in any methods we add to ``int_vec``
-
+- Child class inherits all members of parent class
+- Child does *not* inherit constructors.
+- Virtual method: a method that can be re-impelemented by an inheriting class
+- Abstract method: a method with no implementation.
+  - To be useful, an abstract method should also be be virtual
+  - A virtual method usually should *not* be abstract
+- A destructor in a parent class should always be declared public and virtual.
+- Put common methods in a base class that others will inherit from.
 ```
 class int_vec : public vector<int> {
 
@@ -44,5 +51,7 @@ int main()
 - We can also add member variables to ``int_vec`` that dont appear in ``vector<int>``
 
 **Polymorphism**
-- Whenever a vector<int> can be used, we replace it with int_vec
-- That's because an int_vec can do everything a vector<int> can do and more.
+- A virtual abstract function e.g. ``print()``
+- Multiple implementations; ``point``, ``person`` and ``reading`` all inherit ``print()`` and give it their own implementations.
+- It is not known until run-time what ``print()`` implementation is actually called.
+- At compile-time, C++ can check that the code is used correctly
