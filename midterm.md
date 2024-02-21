@@ -1,4 +1,6 @@
 **Testing**
+- Unit testing: test one part of a program, e.g. a single function.
+- System testing: Testing 
 - Blackbox test cases are created *without* looking at the implementation of the function being tested.
 - Whitebox test cases are created looking at the implementation.
 - Whitebox testing commonly ensures every line of a function is executed at least once by a test.
