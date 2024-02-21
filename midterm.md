@@ -15,7 +15,11 @@
 - Dereferencing a ``nullptr`` is *always* an error.
   - Must be 100% sure that ``p`` is not the ``nullptr`` when you evaluate ``*p``.
 - The amount of call stack memory OR free store a program will use is *not* known at compile-time.
+- Pointers to structs:
+  - ``(*p).x`` is the same as ``p -> x``
+- ``this``: used for an object to refer to itself.
 
 **Classes and Structs**
 - ``const`` methods make the intent of the programmer clear.
 - If a ``const`` method tries to modify a variable in the object, C++ will catch the error at *compile-time*.
+- 
