@@ -5,8 +5,11 @@
 - Whitebox test cases are created looking at the implementation.
 - Whitebox testing commonly ensures every line of a function is executed at least once by a test.
 - Blackbox test cases can be created before any code has been written.
-- *If-style* tests run slower than assert-style.
-- When an *assert-style* test fails, the line number of the failed assertion is printed.
+
+**Methods of testing**
+- If-style tests run slower than assert-style.
+- Table-based testing is easier to add new test cases than if-style.
+- Assert-style testing is usually simplest.
 
 **Pointers and Memory Management**
 - If T is a C++ type, then T* is the type of a pointer to a value of type T.
@@ -22,4 +25,4 @@
 **Classes and Structs**
 - ``const`` methods make the intent of the programmer clear.
 - If a ``const`` method tries to modify a variable in the object, C++ will catch the error at *compile-time*.
-- 
+- A copy constructor *does not* have to use an initializer list.
