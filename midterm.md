@@ -17,6 +17,7 @@
 - ``*(arr + 0)`` and ``arr[0]`` return the same thing.
 - Dereferencing a ``nullptr`` is *always* an error.
   - Must be 100% sure that ``p`` is not the ``nullptr`` when you evaluate ``*p``.
+- It is safe to delete a ``nullptr``.
 - The amount of call stack memory OR free store a program will use is *not* known at compile-time.
 - Pointers to structs:
   - ``(*p).x`` is the same as ``p -> x``
@@ -26,3 +27,31 @@
 - ``const`` methods make the intent of the programmer clear.
 - If a ``const`` method tries to modify a variable in the object, C++ will catch the error at *compile-time*.
 - A copy constructor *does not* have to use an initializer list.
+- Copy constructor parameters should be passed in by *const reference*.
+- Setter:
+  ```
+  void set_name(const string& n) {
+    name = n;
+  }
+  ```
+- Getter:
+  ```
+  void get_name() const {return name;}
+  ```
+- Default constructor:
+  ```
+  Circle()
+  : x(0), y(0), radius(100) {}
+  ```
+- Copy constructor:
+  ```
+  Circle(const Circle& other)
+  : x(other.x), y(other.y), radius(other.radius) {}
+  ```
+- Destructor:
+  ```
+  ~str_vec()
+  {
+    delete[] arr;
+  }
+  ```
