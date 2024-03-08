@@ -58,3 +58,24 @@ int main()
 - Note: This recursive loop is kind of like if you wrote a `for()` loop with ``i = 1, i++ ...``
 - Note: "Tail recursion" is when the last part of the loop being called is the recursive function.
   - This function is tail-recursive.
+
+```
+void g(int n)
+{
+  if(n > 0) {
+    g(n - 1);
+    cout << n << " ";
+    g(n - 1);
+  }
+}
+```
+- Order of which function executes ``cout``, from top to bottom & right to left:
+  g(1)
+  
+  g(2)  - g(1)
+  
+  g(3)  - g(1)
+        - g(2)
+        - g(1)
+
+- Prints: ``1 2 1 3 1 2 1``
