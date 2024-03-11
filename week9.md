@@ -56,9 +56,7 @@ int main()
 - This example will execute about *half* as many times as the previous.
   - Due to ``int`` taking up memory
 - Note: This recursive loop is kind of like if you wrote a `for()` loop with ``i = 1, i++ ...``
-- Note: "Tail recursion" is when the last part of the loop being called is the recursive function.
-  - This function is tail-recursive.
-
+- Note: "Tail recursion" is when the last thing the recursive function calls is itself.
 ```
 void g(int n)
 {
