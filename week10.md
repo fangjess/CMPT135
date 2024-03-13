@@ -143,12 +143,12 @@ int power_iter(int a, int n)
     }
     return pow;
 }
-Note the use of contracts t
 ```
 - Note the use of contracts to specify what the function ought to do.
-  - When a function is specified using a pre-condition and a post-condition, then we can say there is a contract between the function and the rest      of the program.
+  - When a function is specified using a *pre-condition* and a *post-condition*, then we can say there is a contract between the function and the 
+    rest of the program.
 
-- Same algorithm implemented using *recursion*.
+- Same algorithm implemented using *recursion*:
 ```
 int power_recur(int a, int n) {
     // check pre-condition
@@ -162,5 +162,5 @@ int power_recur(int a, int n) {
     return a * power_recur(a, n - 1);
 }
 ```
-- While the source code is shorter than power_iter, it's probably a little less efficient since each call to power_recur uses extra time and call 
-  stack memory.
+- While the source code is shorter than ``power_iter``, it's probably a little less efficient since each call to ``power_recur`` uses extra time 
+  and call stack memory.
