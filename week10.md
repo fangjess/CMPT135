@@ -1,3 +1,8 @@
+**Topics**
+- Recursion
+- Encryption
+- Calculating large powers
+
 **More Recursion**
 
 Examples:
@@ -82,3 +87,80 @@ int sum2(const vector<int>& v)
    return sum2(v, 0, v.size());
 }
 ```
+
+**Passwords and Encryption**
+- Encrypting means to scramble something in such a way that only someone with the key for decrypting it can read it.
+- Web pages that use ``https`` automatically encrypt and decrypt information
+
+```
+> cat password.txt 
+swordfish
+
+❯ ccencrypt password.txt 
+Enter encryption key: honeybee
+Enter encryption key: (repeat) 
+
+❯ cat password.txt.cpt 
+��[��d�d#���3�;4�g�⏎   
+
+❯ ccdecrypt password.txt.cpt 
+Enter decryption key: honey
+
+❯ cat password.txt
+swordfish
+```
+
+- Unless you have the encryption key (i.e. the password string honeybee), it's practically impossible to determine the encrypted password.
+- How do you communicate the encryption key to a site so it can decrypt your password?
+  - You have to send them the key somehow, and if you send it unencrypted over the web then hackers could copy it.
+  - If you encrypt the key, then that encryption needs its own key: how do you send that key securely?
+- The RSA Cryptosystem solves this problem using an idea called public key cryptography.
+  - The bank provides a special public key that anyone can use to encrypt a message that only the bank can decrypt.
+  - The bank does the decryption with a private key that they don’t share with anyone else.
+
+**Calculating Large Integer Powers**
+- The "basic" way to calculate ``a^n`` is to multiply ``a`` by itself ``n - 1`` times.
+
+```
+// Pre-condition: 
+//    n >= 0
+// Post-condition: 
+//    returns a to the power of n, i.e. a^n
+int power_iter(int a, int n) 
+{
+    // check pre-condition
+    if (n < 0) cmpt::error("exponent must be non-negative");
+
+    if (a == 0 && n == 0) return 1;
+    if (a == 0 && n != 0) return 0;
+    if (a != 0 && n == 0) return 1;
+    if (a == 1) return 1;
+    
+    int pow = 1;
+    for(int i = 0; i < n; i++) 
+    {
+        pow *= a;
+    }
+    return pow;
+}
+Note the use of contracts t
+```
+- Note the use of contracts to specify what the function ought to do.
+  - When a function is specified using a pre-condition and a post-condition, then we can say there is a contract between the function and the rest      of the program.
+
+- Same algorithm implemented using *recursion*.
+```
+int power_recur(int a, int n) {
+    // check pre-condition
+    if (n < 0) cmpt::error("exponent must be non-negative");
+
+    if (a == 0 && n == 0) return 1;
+    if (a == 0 && n != 0) return 0;
+    if (a != 0 && n == 0) return 1;
+    if (a == 1) return 1;
+    
+    return a * power_recur(a, n - 1);
+}
+```
+- While the source code is shorter than power_iter, it's probably a little less efficient since each call to power_recur uses extra time and call 
+  stack memory.
