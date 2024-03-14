@@ -164,3 +164,7 @@ int power_recur(int a, int n) {
 ```
 - While the source code is shorter than ``power_iter``, it's probably a little less efficient since each call to ``power_recur`` uses extra time 
   and call stack memory.
+
+- Recursive rule:
+    1. Base case
+    2. If ``n`` is even: ``pow(a, n)``
