@@ -2,6 +2,7 @@
 - Recursion
 - Encryption
 - Calculating large powers
+- Performance and algorithms
 
 **More Recursion**
 
@@ -165,6 +166,22 @@ int power_recur(int a, int n) {
 - While the source code is shorter than ``power_iter``, it's probably a little less efficient since each call to ``power_recur`` uses extra time 
   and call stack memory.
 
-- Recursive rule:
-    1. Base case
-    2. If ``n`` is even: ``pow(a, n)``
+**Perfomance and Algorithms**
+
+- Pseudocode:
+  - informal description of a program
+  - meant to be easy to read
+  - ignores small details; focuses on things most important
+  - pseudocode for a max-finding algorithm:
+  
+  ```
+  max_so_far <- v[0]
+  for i = 1 to n-1 do
+      if v[i] > max_so_far then max_so_far <- v[i]
+  return max_so_far
+  ```
+
+- Key operations:
+  - step of the algorithm that we choose to count when measuring the algorithm's performance.
+  - it's possible to get different results by choosing different key operations
+  - always try to choose key operations that give the most representative results
