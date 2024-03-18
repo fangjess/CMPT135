@@ -39,7 +39,8 @@
   - 1/*n* of the time 3 comparisons are done
   - etc.
 - The total amount of work done is the **sum** of each case:
-    (1/*n*) * 1 + (1/*n*) * 2 + ... + (1/*n*)*n*
+    (1/*n*) * 1 + (1/*n*) * 2 + ... + (1/*n*) * *n*
+  
       = (1/*n*)(1 + 2 + ... + *n*)
       = (1/*n*) * ((*n*(*n* + 1)/2)
       = (*n* + 1)/2
