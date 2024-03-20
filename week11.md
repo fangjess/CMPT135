@@ -48,7 +48,7 @@
 - **When *x* is NOT in *v***:
   - Exactly *n* comparisons are done
   - Average case performance expression becomes:
-    (1/2)(# of comparisons done when *x* is in *v*) + (1/2)*n*
+    (1/2) * (# of comparisons done when *x* is in *v*) + (1/2)*n*
 
 - So assuming there's a 50/50 chance *x* is in *v*, and assuming if *x* is in *v* it has an equal chance of being at any position, on average we would expect linear search to do:
   
