@@ -1,3 +1,8 @@
+**Topics**
+- Linear search
+- Average case performance
+- Linear insertion sort
+
 **Searching**
 - Linear search:
   - Pseudocode:
@@ -56,5 +61,71 @@
   
 calls to ``==``.
 
-  
-        
+**Insertion Sort**
+- Insertion sort divides the list into a sorted part and unsorted part.
+- Start with the first element as the sorted part.
+- Then take the first element of unsorted, and insert it into its corrected position in the sorted part.
+- Finding the correct insertion point requires searching through the sorted part.
+
+Implementation example:
+
+```
+void insertion_sort(vector<int>& v) 
+{
+   for(int i = 1; i < v.size(); ++i) 
+   {
+
+     // key is the value we are going to insert
+     // into the sorted part of v
+     int key = v[i];      
+
+     // j points to one position before the 
+     // (possible) insertion point of the key;
+     // thus, key will eventually be inserted at 
+     // v[j + 1]
+     int j = i - 1;
+
+     //
+     // This loop determines where to insert the key 
+     // into the sorted part of v. It does this by 
+     // searching backwards through the sorted part 
+     // for the first value that is less than, or equal 
+     // to, key.
+     //
+     // This loop combines searching with element 
+     // moving. Every time an element bigger than the 
+     // key is found, it is moved up one position.
+     //
+     // It's possible that there is no value in the 
+     // sorted part that is smaller than key, in which 
+     // case key gets inserted at the very start of v. 
+     // This is a special case that is handled by j >= 0 
+     // in the loop condition.
+     //
+     while (j >= 0 && v[j] > key) 
+     {
+        v[j + 1] = v[j];
+        --j;
+     }
+     // After loop ends this is true: 
+     // (j < 0 || v[j] <= key)
+
+     v[j + 1] = key;   // j points to the location 
+                       // *before* the one where key 
+                       // will be inserted
+   }
+}
+```
+
+**Performance of Linear Insertion Sort**
+- Insertion sort will do at most *n* - 1 insertions
+  - Because each insertion reomves one item from sorted
+- Each insertion also requires doing a linear search to find out where the element goes.
+- In general, in the worst case insertion sort does (*n*(*n* - 1))/2 comparisons to sort *n* objects.
+  - Expression is quadratic
+  - When *n* is big, term *n*/2 doesn't make much difference so it can be ignored.
+  - Thus, when *n* is big, insertion sort does *n*^2 comparisons.
+  - Same for number of elements *moved* by insertion sort.
+- Quite slow when *n* is large
+- Should only be used for sorting a small number of items.
+
