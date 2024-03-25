@@ -118,6 +118,14 @@ void insertion_sort(vector<int>& v)
 ```
 
 **Performance of Linear Insertion Sort**
+
+- Best case: data is in ascending sorted order
+  - *n* comparisons / O(n) comparisons
+  - Does an amount of work proportional to the amount of data given
+- Worst case: O(n^2)
+  - See below:
+
+
 - Insertion sort will do at most *n* - 1 insertions
   - Because each insertion reomves one item from sorted
 - Each insertion also requires doing a linear search to find out where the element goes.
@@ -127,5 +135,10 @@ void insertion_sort(vector<int>& v)
   - Thus, when *n* is big, insertion sort does *n*^2 comparisons.
   - Same for number of elements *moved* by insertion sort.
 - Quite slow when *n* is large
+
+
 - Should only be used for sorting a small number of items.
+- Insertion sort out-performs mergesort on already-sorted data.
+- Good for *partially sorted* data.
+
 
