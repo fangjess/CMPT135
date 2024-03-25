@@ -59,7 +59,7 @@
   
   (1/2)((*n* + 1)/2) + (1/2)*n*
   
-calls to ``==``.
+  calls to ``==``.
 
 **Insertion Sort**
 - Insertion sort divides the list into a sorted part and unsorted part.
