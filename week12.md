@@ -10,6 +10,4 @@
     - If it's equal, search is complete.
   - Erase the irrelevant half of the data
   - Repeat
- 
-**Performance of Binary Search**
-- 
+
